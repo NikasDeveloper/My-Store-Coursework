@@ -37,16 +37,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-
                             <button type="submit" class="btn btn-primary btn-lg">
                                 Prisijungti
                             </button>
-
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+@endsection
 
+@section("scripts")
+    <script>
+        @if($errors->has("password") and !$errors->has("email")) $("#password").focus();
+        @else $("#email").focus();
+        @endif
+    </script>
 @endsection

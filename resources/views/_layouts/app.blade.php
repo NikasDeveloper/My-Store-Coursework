@@ -28,7 +28,8 @@
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset("vendor/css/font-awesome.min.css") }}" rel="stylesheet">
     <link href="{{ asset("vendor/css/themify-icons.css") }}" rel="stylesheet">
-
+    <!-- Local styles -->
+    @yield("styles")
 </head>
 <body>
 

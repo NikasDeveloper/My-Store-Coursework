@@ -31,12 +31,17 @@
                     <p>Pagalba</p>
                 </a>
             </li>
-            <li>
-                <a href="javascript:void(0);">
-                    <i class="ti-lock"></i>
-                    <p>Atsijungti</p>
-                </a>
-            </li>
+            @auth
+                <li>
+                    <a href="javascript:void(0);" onclick="document.getElementById('user-logout-form').submit();">
+                        <i class="ti-lock"></i>
+                        <p>Atsijungti</p>
+                    </a>
+                    <form action="{{ route("logout") }}" method="POST" id="user-logout-form">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+            @endauth
         </ul>
     </div>
 </div>
