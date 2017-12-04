@@ -114,7 +114,17 @@ return [
             'max' => 'Pavadinimas maksimalus ilgis :max simbolių.',
         ],
         'status' => [
+            'required' => 'Nurodykite būseną.',
             'in' => 'Neteisinga būsena.'
+        ],
+        'description' => [
+            'max' => 'Apibūdinimas negali būti ilgesnis nei :max simbolių.',
+        ],
+        'price' => [
+            'required' => 'Įveskite kainą.',
+            'numeric' => 'Neteisingas kainos formatas.',
+            'min' => 'Kaina turi būti bent :min.',
+            'max' => 'Kaina negali viršyti :max.',
         ],
         'product' => [
             'numeric' => 'Prekės numeris turi būti skaičius.',
