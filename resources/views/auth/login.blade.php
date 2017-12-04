@@ -13,7 +13,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="control-label">E-Mail Address</label>
+                            <label for="email" class="control-label">El. paštas</label>
                             <input id="email" type="email" class="form-control border-input" name="email"
                                    value="{{ old('email') }}" required>
                             @if ($errors->has('email'))
@@ -21,7 +21,7 @@
                             @endif
                         </div>
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="control-label">Password</label>
+                            <label for="password" class="control-label">Slaptažodis</label>
                             <input id="password" type="password" class="form-control border-input" name="password"
                                    required>
                             @if ($errors->has('password'))

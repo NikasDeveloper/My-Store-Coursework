@@ -13,7 +13,7 @@
             @foreach($products as $product)
                 <tr>
                     <td class="text-left">
-                        <a href="javascript:void(0)"> {{$product->name}}</a>
+                        <a href="{{ route("product.edit", ["product" => $product->id]) }}"> {{$product->name}}</a>
                     </td>
                     <td class="text-right">{{ moneyFloat($product->price )}} &euro;</td>
                     <td class="text-center">

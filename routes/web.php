@@ -27,4 +27,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get("/products", ["as" => "products", "uses" => "Product\SearchController@showSearchForm"]);
 
+    Route::get("/product", ["as" => "product.create", "uses" => "Product\ProductController@create"]);
+
+    Route::put("/product", ["uses" => "Product\ProductController@store"]);
+
+    Route::get("/product/{product}", ["as" => "product.edit", "uses" => "Product\ProductController@edit"]);
+
+    Route::patch("/product/{product}", ["uses" => "Product\ProductController@update"]);
+
 });

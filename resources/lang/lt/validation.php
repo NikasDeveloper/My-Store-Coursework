@@ -108,6 +108,7 @@ return [
             'required' => 'Įveskite slaptažodį.'
         ],
         'name' => [
+            'unique' => 'Prekės pavadinimas jau panaudotas.',
             'required' => 'Įveskite pavadinimą.',
             'min' => 'Pavadinimas turi būti sudarytas bent iš :min simbolių.',
             'max' => 'Pavadinimas maksimalus ilgis :max simbolių.',

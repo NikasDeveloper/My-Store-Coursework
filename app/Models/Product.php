@@ -15,6 +15,11 @@ class Product extends Model
         'name', 'description', 'price', 'status'
     ];
 
+    /**
+     * Active attribute accesssor.
+     *
+     * @var boolean
+     */
     public function getActiveAttribute()
     {
         return $this->attributes['status'] == "Y";
