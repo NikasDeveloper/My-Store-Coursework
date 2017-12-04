@@ -18,3 +18,5 @@ Route::get("/login", ["as" => "login", "uses" => "Auth\LoginController@showLogin
 Route::post("/login", ["uses" => "Auth\LoginController@login"]);
 
 Route::post("/logout", ["as" => "logout", "uses" => "Auth\LoginController@logout"]);
+
+Route::get("/help", ["as" => "help", "uses" => "Help\HelpController@showHelpView"]);

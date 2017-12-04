@@ -7,35 +7,30 @@
             </a>
         </div>
         <ul class="nav">
-            <li>
-                <a href="javascript:void(0);">
-                    <i class="ti-home"></i>
-                    <p>Pagrindinis</p>
+            <li class="{{ activeClassBind(1, null) }}">
+                <a href="{{ route("home") }}">
+                    <i class="ti-home"></i><p>Pagrindinis</p>
                 </a>
             </li>
             <li>
-                <a href="javascript:void(0);">
-                    <i class="ti-package"></i>
-                    <p>Sandėlys</p>
+                <a href="{{ activeClassBind(1, "store") }}">
+                    <i class="ti-package"></i><p>Sandėlys</p>
                 </a>
             </li>
             <li>
-                <a href="javascript:void(0);">
-                    <i class="ti-shopping-cart"></i>
-                    <p>Prekės</p>
+                <a href="{{ activeClassBind(1, "products") }}">
+                    <i class="ti-shopping-cart"></i><p>Prekės</p>
                 </a>
             </li>
-            <li>
-                <a href="javascript:void(0);">
-                    <i class="ti-help-alt"></i>
-                    <p>Pagalba</p>
+            <li class="{{ activeClassBind(1, "help") }}">
+                <a href="{{ route("help") }}">
+                    <i class="ti-help-alt"></i><p>Pagalba</p>
                 </a>
             </li>
             @auth
                 <li>
                     <a href="javascript:void(0);" onclick="document.getElementById('user-logout-form').submit();">
-                        <i class="ti-lock"></i>
-                        <p>Atsijungti</p>
+                        <i class="ti-lock"></i><p>Atsijungti</p>
                     </a>
                     <form action="{{ route("logout") }}" method="POST" id="user-logout-form">
                         {{ csrf_field() }}
