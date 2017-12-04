@@ -3,6 +3,7 @@
 @section("title", "Prekės redagavimas")
 
 @section("content")
+
     <div class="card">
         <div class="header">
             <h4 class="title">{{ $product->name }} redagavimo forma</h4>
@@ -50,6 +51,18 @@
             </button>
         </form>
     </div>
+
+    <div class="card">
+        <form class="content" method="POST" action="{{ route("product.delete", ["product" => $product->id]) }}">
+            {{ csrf_field() }}
+            {{ method_field("DELETE") }}
+            <div class="text-center">
+                <button type="submit" class="btn btn-fill btn-wd btn-warning btn-magnify">
+                    <span class="btn-label"><i class="ti-trash"></i></span> Ištrinti
+                </button>
+            </div>
+        </form>
+    </div>
 @endsection
 
 @section("scripts")
@@ -60,7 +73,7 @@
                 icon: "ti-check",
                 message: "{{ Session::pull("product_created") }}"
 
-            },{
+            }, {
                 type: "success",
                 timer: 4000,
                 placement: {
@@ -77,7 +90,7 @@
                 icon: "ti-check",
                 message: "{{ Session::pull("product_updated") }}"
 
-            },{
+            }, {
                 type: "success",
                 timer: 4000,
                 placement: {
