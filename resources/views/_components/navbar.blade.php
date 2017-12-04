@@ -10,7 +10,18 @@
             <a class="navbar-brand" href="javascript: void(0);">@yield("title")</a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right"></ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <i class="ti-pencil-alt"></i>
+                        <p>Veiksmai</p><b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route("product.create") }}">Sukurti prekę</a></li>
+                        <li><a href="javascript: void(0);">Papildyti sandėlį</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

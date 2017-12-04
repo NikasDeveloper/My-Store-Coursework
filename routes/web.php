@@ -35,4 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::patch("/product/{product}", ["uses" => "Product\ProductController@update"]);
 
+    Route::delete("/product/{product}/delete", ["uses" => "Product\ProductController@destroy"]);
+
 });
