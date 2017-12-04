@@ -12,7 +12,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Pavadiniams</th>
+                    <th>Pavadinimas</th>
                     <th class="text-center">Veiksmas</th>
                 </tr>
                 </thead>

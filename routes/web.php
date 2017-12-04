@@ -19,4 +19,12 @@ Route::post("/login", ["uses" => "Auth\LoginController@login"]);
 
 Route::post("/logout", ["as" => "logout", "uses" => "Auth\LoginController@logout"]);
 
-Route::get("/help", ["as" => "help", "uses" => "Help\HelpController@showHelpView"]);
+Route::get("/help", ["as" => "help", "uses" => "Help\HelpController@showHelpView", "middleware" => "auth"]);
+
+/* PRODUCTS */
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get("/products", ["as" => "products", "uses" => "Product\SearchController@showSearchForm"]);
+
+});

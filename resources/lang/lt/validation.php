@@ -106,6 +106,20 @@ return [
         ],
         'password' => [
             'required' => 'Įveskite slaptažodį.'
+        ],
+        'name' => [
+            'required' => 'Įveskite pavadinimą.',
+            'min' => 'Pavadinimas turi būti sudarytas bent iš :min simbolių.',
+            'max' => 'Pavadinimas maksimalus ilgis :max simbolių.',
+        ],
+        'status' => [
+            'in' => 'Neteisinga būsena.'
+        ],
+        'product' => [
+            'numeric' => 'Prekės numeris turi būti skaičius.',
+            'min' => 'Prekės numeris turi bent :min.',
+            'max' => 'Prekės numeris turi iki :max.',
+            'exists' => 'Prekės numeris neegzistuoja sistemoje.'
         ]
     ],
 

@@ -28,3 +28,19 @@ if (!function_exists('activeClassBind')) {
         return '';
     }
 }
+
+if (!function_exists('moneyFloat')) {
+    /**
+     * Format float to money value.
+     *
+     * @param float $value
+     * @param integer $places
+     * @return string
+     */
+    function moneyFloat($value = 0.00, $places = 2)
+    {
+        if(empty($value)) number_format(0.00, 2, '.', '');
+
+        return number_format($value, $places, '.', '');
+    }
+}

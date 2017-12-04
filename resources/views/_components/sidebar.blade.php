@@ -12,13 +12,13 @@
                     <i class="ti-home"></i><p>Pagrindinis</p>
                 </a>
             </li>
-            <li>
-                <a href="{{ activeClassBind(1, "store") }}">
+            <li class="{{ activeClassBind(1, "store") }}">
+                <a href="javascript:void(0);">
                     <i class="ti-package"></i><p>Sandėlys</p>
                 </a>
             </li>
-            <li>
-                <a href="{{ activeClassBind(1, "products") }}">
+            <li class="{{ activeClassBind(1, "products") }}">
+                <a href="{{ route("products") }}">
                     <i class="ti-shopping-cart"></i><p>Prekės</p>
                 </a>
             </li>
