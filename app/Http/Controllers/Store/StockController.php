@@ -2,27 +2,33 @@
 
 namespace App\Http\Controllers\Store;
 
-use Carbon\Carbon;
 use App\Models\Store;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Session;
 
 class StockController extends Controller
 {
+    /**
+     * Show stock refill form.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function showRefillForm()
     {
-
+        $products = Product::whereStatus('Y')->get();
+        return view("store.refill", ["products" => $products]);
     }
-
 
     /**
      * Refill product in store.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function refill(Request $request)
     {
@@ -30,10 +36,12 @@ class StockController extends Controller
 
         $product = Product::findOrFail($request->input("product"));
 
-        if(!$product->active){
-            return response()->json([
-                "error" => ["title" => "Klaida!", "message" => "Negalima papildyti sandėlį neaktyvią preke."]
-            ], 500);
+        if (!$product->active) {
+            return $request->wantsJson()
+                ? response()->json([
+                    "error" => ["title" => "Klaida!", "message" => "Negalima papildyti sandėlį neaktyvią preke."]
+                ], 500)
+                : abort(500);
         }
 
         DB::beginTransaction();
@@ -51,16 +59,21 @@ class StockController extends Controller
 
             if (DB::table('store')->insert($attributes)) DB::commit();
 
-            return response()->json([
-                "notification" => ["title" => "Pavyko!", "message" => "Prekė pridėta į sandėlį."],
-                "in_stock" => $product->stock->count()
-            ]);
+            if ($request->wantsJson()) {
+                return response()->json([
+                    "notification" => ["title" => "Pavyko!", "message" => "Prekė pridėta į sandėlį."],
+                    "in_stock" => $product->stock->count()
+                ]);
+            }
+
+            Session::put("stock_refilled", "Prekė pridėta į sandėlį");
+            return redirect()->route("store.refill");
 
         } catch (QueryException $exception) {
             DB::rollBack();
-            return response()->json([
+            return $request->wantsJson() ? response()->json([
                 "error" => ["title" => "Klaida!", "message" => "Nepavyko pridėti prekių į sandėlį."]
-            ], 500);
+            ], 500) : abort(500);
         }
 
     }

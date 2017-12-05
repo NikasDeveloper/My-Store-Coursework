@@ -113,7 +113,7 @@
             if ($(button).prop("disabled") === true) return;
 
             swal({
-                title: 'Submit email to run ajax request',
+                title: 'Prekės pildymo forma',
                 input: 'number',
                 showCancelButton: true,
                 confirmButtonText: 'Pridėti',

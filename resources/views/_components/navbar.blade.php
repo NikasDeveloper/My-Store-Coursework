@@ -19,7 +19,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route("product.create") }}">Sukurti prekę</a></li>
-                            <li><a href="javascript: void(0);">Papildyti sandėlį</a></li>
+                            <li><a href="{{ route("store.refill") }}">Papildyti sandėlį</a></li>
                         </ul>
                     </li>
                 @endauth

@@ -126,6 +126,12 @@ return [
             'min' => 'Kaina turi būti bent :min.',
             'max' => 'Kaina negali viršyti :max.',
         ],
+        'amount' => [
+            'required' => 'Įveskitę kiekį.',
+            'integer' => 'Kiekis turi būti sveikasis skaičius.',
+            'min' => 'Kiekis turi būti bent :min.',
+            'max' => 'Kiekis turi būti iki :max.',
+        ],
         'product' => [
             'numeric' => 'Prekės numeris turi būti skaičius.',
             'min' => 'Prekės numeris turi bent :min.',
