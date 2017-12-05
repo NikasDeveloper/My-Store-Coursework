@@ -24,6 +24,9 @@
     <!--  Paper Dashboard core CSS    -->
     <link href="{{ asset("vendor/css/paper-dashboard.css") }}" rel="stylesheet"/>
 
+    <!-- SweetAlert CSS    -->
+    <link href="{{ asset("vendor/css/sweetalert2.min.css") }}" rel="stylesheet"/>
+
     <!--  Fonts and icons     -->
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset("vendor/css/font-awesome.min.css") }}" rel="stylesheet">

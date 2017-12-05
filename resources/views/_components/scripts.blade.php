@@ -11,5 +11,8 @@
 <!--  Notifications Plugin    -->
 <script src="{{ asset("vendor/js/bootstrap-notify.js") }}"></script>
 
+<!-- SweetAlert2 Plugin-->
+<script src="{{ asset("vendor/js/sweetalert2.all.min.js") }}"></script>
+
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="{{ asset("vendor/js/paper-dashboard.js") }}"></script>
