@@ -40,3 +40,11 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
 
 });
+
+/* STORE */
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get("/store", ["as" => "store", "uses" => "Store\SearchController@showSearchForm"]);
+
+});

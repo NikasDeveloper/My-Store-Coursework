@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class="{{ activeClassBind(1, "store") }}">
-                <a href="javascript:void(0);">
+                <a href="{{ route("store") }}">
                     <i class="ti-package"></i><p>Sandėlys</p>
                 </a>
             </li>

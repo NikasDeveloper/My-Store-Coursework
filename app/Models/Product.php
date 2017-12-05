@@ -24,4 +24,13 @@ class Product extends Model
     {
         return $this->attributes['status'] == "Y";
     }
+
+    /**
+     * Product -> Store  relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function stock()
+    {
+        return $this->hasMany('App\Store');
+    }
 }
