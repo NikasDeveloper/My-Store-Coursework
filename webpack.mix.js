@@ -15,3 +15,5 @@ let mix = require('laravel-mix');
 //    .sass('resources/assets/sass/app.scss', 'public/css');
 
 mix.copy('resources/assets/vendor', 'public/vendor');
+
+mix.copy('resources/assets/images', 'public/images');

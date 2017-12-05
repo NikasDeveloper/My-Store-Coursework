@@ -3,7 +3,7 @@
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="{{ route("home") }}" class="simple-text">
-                {{ config('app.name', 'Mano sandėlys') }}
+                <img src="{{ asset("images/logo_small.png") }}" alt="">
             </a>
         </div>
         <ul class="nav">
