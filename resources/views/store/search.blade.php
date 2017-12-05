@@ -94,6 +94,7 @@
                 success: function (data) {
                     const notification = data.notification;
                     $(button).closest("tr").find("td.text-right").html("0 vnt.");
+                    $(button).hide();
                     swal(notification.title, notification.message, 'success');
                 },
                 error: function (xhr) {
@@ -158,6 +159,7 @@
                             success: function (data) {
                                 const notification = data.notification;
                                 $(button).closest("tr").find("td.text-right").html(data.in_stock + " vnt.");
+                                $(button).parent().find("button.btn-danger").show();
                                 swal(notification.title, notification.message, 'success');
                             },
                             error: function (xhr) {

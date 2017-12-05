@@ -22,7 +22,8 @@
                             <span class="btn-label"><i class="ti-plus"></i></span>
                         </button>
                         <button type="submit" class="btn btn-danger" data-id="{{ $product->id }}"
-                                onclick="restockProduct(this);">
+                                onclick="restockProduct(this);"
+                                @if($product->counter <= 0) style="display: none;" @endif>
                             <span class="btn-label"><i class="ti-close"></i></span>
                         </button>
                     </td>
