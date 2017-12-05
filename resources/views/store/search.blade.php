@@ -65,3 +65,113 @@
     @endif
 
 @endsection
+
+@section("scripts")
+    <script>
+
+        function restockProduct(button) {
+
+            const url = "{{ route("store.restock") }}";
+            const id = $(button).attr("data-id");
+
+            if ($(button).prop("disabled") === true) return;
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    "_token": $('meta[name="csrf-token"]').attr("content"),
+                    "_method": "DELETE",
+                    "product": id
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    $(button).prop("disabled", true);
+                },
+                complete: function () {
+                    $(button).prop("disabled", false);
+                },
+                success: function (data) {
+                    const notification = data.notification;
+                    $(button).closest("tr").find("td.text-right").html("0 vnt.");
+                    swal(notification.title, notification.message, 'success');
+                },
+                error: function (xhr) {
+                    const response = xhr.responseJSON;
+                    swal(response.error.title, response.error.message, 'error');
+                },
+            });
+
+        }
+
+        function refillProduct(button) {
+
+            const url = "{{ route("store.refill") }}";
+            const id = $(button).attr("data-id");
+
+            if ($(button).prop("disabled") === true) return;
+
+            swal({
+                title: 'Submit email to run ajax request',
+                input: 'number',
+                showCancelButton: true,
+                confirmButtonText: 'Pridėti',
+                cancelButtonText: 'Atšaukti',
+                showLoaderOnConfirm: true,
+                inputValidator: (value) => {
+                    return new Promise((resolve) => {
+                        if (value.indexOf(".") !== -1 || value.indexOf(",") !== -1) {
+                            resolve('Kiekis turi būti sveikasis skaičius.');
+                        } else if (value <= 0) {
+                            resolve('Kiekis turi būti didesnis už 0.');
+                        } else if (value > 5000) {
+                            resolve('Kiekis turi iki 5000.');
+                        } else {
+                            resolve();
+                        }
+                    })
+                },
+                preConfirm: (number) => {
+                    return new Promise((resolve) => {
+
+                        if (number <= 0) {
+                            swal.showValidationError('Kiekis turi būti teigiamas.');
+                            resolve();
+                        }
+
+                        $.ajax({
+                            url: url,
+                            type: "POST",
+                            data: {
+                                "_token": $('meta[name="csrf-token"]').attr("content"),
+                                "_method": "PUT",
+                                "product": id,
+                                "amount": parseInt(number),
+                            },
+                            dataType: "json",
+                            beforeSend: function () {
+                                $(button).prop("disabled", true);
+                            },
+                            complete: function () {
+                                $(button).prop("disabled", false);
+                            },
+                            success: function (data) {
+                                const notification = data.notification;
+                                $(button).closest("tr").find("td.text-right").html(data.in_stock + " vnt.");
+                                swal(notification.title, notification.message, 'success');
+                            },
+                            error: function (xhr) {
+                                const response = xhr.responseJSON;
+                                swal(response.error.title, response.error.message, 'error');
+                            },
+                        });
+
+                    })
+                },
+                allowOutsideClick: false
+            });
+
+        }
+
+    </script>
+@endsection

@@ -31,6 +31,6 @@ class Product extends Model
      */
     public function stock()
     {
-        return $this->hasMany('App\Store');
+        return $this->hasMany('App\Models\Store');
     }
 }

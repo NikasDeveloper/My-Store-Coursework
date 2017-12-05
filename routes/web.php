@@ -47,4 +47,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get("/store", ["as" => "store", "uses" => "Store\SearchController@showSearchForm"]);
 
+    Route::get("/stock/refill", ["as" => "store.refill", "uses" => "Store\StockController@showRefillForm"]);
+
+    Route::put("/stock/refill", ["uses" => "Store\StockController@refill"]);
+
+    Route::delete("/stock/restock", ["as" => "store.restock", "uses" => "Store\StockController@restock"]);
+
 });

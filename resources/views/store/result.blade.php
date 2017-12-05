@@ -17,10 +17,12 @@
                     </td>
                     <td class="text-right">{{ $product->counter }} vnt.</td>
                     <td class="text-center">
-                        <button type="submit" class="btn btn-success">
+                        <button type="submit" class="btn btn-success" data-id="{{ $product->id }}"
+                                onclick="refillProduct(this);">
                             <span class="btn-label"><i class="ti-plus"></i></span>
                         </button>
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-danger" data-id="{{ $product->id }}"
+                                onclick="restockProduct(this);">
                             <span class="btn-label"><i class="ti-close"></i></span>
                         </button>
                     </td>
