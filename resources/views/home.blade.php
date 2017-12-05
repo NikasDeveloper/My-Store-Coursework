@@ -20,19 +20,31 @@
                 <tr>
                     <td>Sandėlys</td>
                     <td class="text-center">
-                        <a href="javascript:void(0)" class="btn btn-info btn-fill btn-wd">Peržiūra</a>
+                        <a href="{{ route("store") }}" class="btn btn-info btn-fill btn-wd">Peržiūra</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sandėlio papildymas</td>
+                    <td class="text-center">
+                        <a href="{{ route("store.refill") }}" class="btn btn-info btn-fill btn-wd">Peržiūra</a>
                     </td>
                 </tr>
                 <tr>
                     <td>Prekės</td>
                     <td class="text-center">
-                        <a href="javascript:void(0)" class="btn btn-info btn-fill btn-wd">Peržiūra</a>
+                        <a href="{{ route("products") }}" class="btn btn-info btn-fill btn-wd">Peržiūra</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prekės kūrimas</td>
+                    <td class="text-center">
+                        <a href="{{ route("product.create") }}" class="btn btn-info btn-fill btn-wd">Peržiūra</a>
                     </td>
                 </tr>
                 <tr>
                     <td>Pagalba</td>
                     <td class="text-center">
-                        <a href="javascript:void(0)" class="btn btn-info btn-fill btn-wd">Peržiūra</a>
+                        <a href="{{ route("help") }}" class="btn btn-info btn-fill btn-wd">Peržiūra</a>
                     </td>
                 </tr>
                 </tbody>

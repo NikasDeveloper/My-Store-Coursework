@@ -4,7 +4,8 @@
             <ul></ul>
         </nav>
         <div class="copyright pull-right">
-            &copy; {{ \Carbon\Carbon::now()->year }}, Nikolajus Lebedenko
+            &copy; {{ \Carbon\Carbon::now()->year }},
+            @if(config("app.reason") == "UX") Nikolajus Lebedenko @else {{ config("app.name") }}  @endif
         </div>
     </div>
 </footer>

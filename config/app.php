@@ -30,6 +30,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Reason
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "reasong" your application is currently
+    | running in. This may determine how you prefer to show home page.
+    | Set this in your ".env" file. UX - show table of view others dashboard.
+    |
+    */
+    'reason' => env('APP_REASON', 'UX'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Debug Mode
     |--------------------------------------------------------------------------
     |
