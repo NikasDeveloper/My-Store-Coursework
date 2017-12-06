@@ -22,11 +22,13 @@
                     <i class="ti-shopping-cart"></i><p>Prekės</p>
                 </a>
             </li>
+            @if(config("app.reason") == "UX")
             <li class="{{ activeClassBind(1, "help") }}">
-                <a href="{{ route("help") }}">
+                <a href="{{ asset("help.pdf")}}" download="help.pdf" target="_blank">
                     <i class="ti-help-alt"></i><p>Pagalba</p>
                 </a>
             </li>
+            @endif
             @auth
                 <li>
                     <a href="javascript:void(0);" onclick="document.getElementById('user-logout-form').submit();">

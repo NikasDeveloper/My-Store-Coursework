@@ -25,8 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(config("app.reason") == "UX") return view('home');
-
         $disabled_products = Product::whereStatus('N')->count();
         $active_products = Product::whereStatus('Y')->count();
         $product_labels = (object)[
